@@ -12,11 +12,6 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/brocaar/chirpstack-api/go/v3/as"
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
-	"github.com/brocaar/chirpstack-api/go/v3/common"
-	gwPB "github.com/brocaar/chirpstack-api/go/v3/gw"
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
 	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver"
 	nsmock "github.com/brocaar/chirpstack-application-server/internal/backend/networkserver/mock"
 	"github.com/brocaar/chirpstack-application-server/internal/codec"
@@ -25,6 +20,11 @@ import (
 	"github.com/brocaar/chirpstack-application-server/internal/storage"
 	"github.com/brocaar/chirpstack-application-server/internal/test"
 	"github.com/brocaar/lorawan"
+	"github.com/wereii/chirpstack-api/go/v3/as"
+	pb "github.com/wereii/chirpstack-api/go/v3/as/integration"
+	"github.com/wereii/chirpstack-api/go/v3/common"
+	gwPB "github.com/wereii/chirpstack-api/go/v3/gw"
+	"github.com/wereii/chirpstack-api/go/v3/ns"
 )
 
 type ASTestSuite struct {

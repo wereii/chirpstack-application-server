@@ -14,7 +14,6 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/external/api"
 	"github.com/brocaar/chirpstack-application-server/internal/api/external/auth"
 	"github.com/brocaar/chirpstack-application-server/internal/api/helpers"
 	"github.com/brocaar/chirpstack-application-server/internal/codec"
@@ -28,6 +27,7 @@ import (
 	"github.com/brocaar/chirpstack-application-server/internal/integration/pilotthings"
 	"github.com/brocaar/chirpstack-application-server/internal/integration/thingsboard"
 	"github.com/brocaar/chirpstack-application-server/internal/storage"
+	pb "github.com/wereii/chirpstack-api/go/v3/as/external/api"
 )
 
 // ApplicationAPI exports the Application related functions.

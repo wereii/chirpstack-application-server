@@ -13,10 +13,6 @@ import (
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/brocaar/chirpstack-api/go/v3/as/integration"
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
-	"github.com/brocaar/chirpstack-api/go/v3/common"
-	gw "github.com/brocaar/chirpstack-api/go/v3/gw"
 	"github.com/brocaar/chirpstack-application-server/internal/integration/loracloud/client/das"
 	"github.com/brocaar/chirpstack-application-server/internal/integration/loracloud/client/geolocation"
 	"github.com/brocaar/chirpstack-application-server/internal/integration/loracloud/client/helpers"
@@ -25,6 +21,10 @@ import (
 	"github.com/brocaar/chirpstack-application-server/internal/storage"
 	"github.com/brocaar/lorawan"
 	"github.com/brocaar/lorawan/gps"
+	"github.com/wereii/chirpstack-api/go/v3/as/integration"
+	pb "github.com/wereii/chirpstack-api/go/v3/as/integration"
+	"github.com/wereii/chirpstack-api/go/v3/common"
+	gw "github.com/wereii/chirpstack-api/go/v3/gw"
 )
 
 // Config contains the LoRaCloud integration configuration.

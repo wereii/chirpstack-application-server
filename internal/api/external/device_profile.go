@@ -9,18 +9,18 @@ import (
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/lib/pq/hstore"
 
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
+	"github.com/wereii/chirpstack-api/go/v3/ns"
 
 	"github.com/jmoiron/sqlx"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/external/api"
 	"github.com/brocaar/chirpstack-application-server/internal/api/external/auth"
 	"github.com/brocaar/chirpstack-application-server/internal/api/helpers"
 	"github.com/brocaar/chirpstack-application-server/internal/codec"
 	"github.com/brocaar/chirpstack-application-server/internal/storage"
+	pb "github.com/wereii/chirpstack-api/go/v3/as/external/api"
 )
 
 // DeviceProfileServiceAPI exports the ServiceProfile related functions.
@@ -68,26 +68,28 @@ func (a *DeviceProfileServiceAPI) Create(ctx context.Context, req *pb.CreateDevi
 		},
 		UplinkInterval: uplinkInterval,
 		DeviceProfile: ns.DeviceProfile{
-			SupportsClassB:     req.DeviceProfile.SupportsClassB,
-			ClassBTimeout:      req.DeviceProfile.ClassBTimeout,
-			PingSlotPeriod:     req.DeviceProfile.PingSlotPeriod,
-			PingSlotDr:         req.DeviceProfile.PingSlotDr,
-			PingSlotFreq:       req.DeviceProfile.PingSlotFreq,
-			SupportsClassC:     req.DeviceProfile.SupportsClassC,
-			ClassCTimeout:      req.DeviceProfile.ClassCTimeout,
-			MacVersion:         req.DeviceProfile.MacVersion,
-			RegParamsRevision:  req.DeviceProfile.RegParamsRevision,
-			RxDelay_1:          req.DeviceProfile.RxDelay_1,
-			RxDrOffset_1:       req.DeviceProfile.RxDrOffset_1,
-			RxDatarate_2:       req.DeviceProfile.RxDatarate_2,
-			RxFreq_2:           req.DeviceProfile.RxFreq_2,
-			MaxEirp:            req.DeviceProfile.MaxEirp,
-			MaxDutyCycle:       req.DeviceProfile.MaxDutyCycle,
-			SupportsJoin:       req.DeviceProfile.SupportsJoin,
-			RfRegion:           req.DeviceProfile.RfRegion,
-			Supports_32BitFCnt: req.DeviceProfile.Supports_32BitFCnt,
-			FactoryPresetFreqs: req.DeviceProfile.FactoryPresetFreqs,
-			AdrAlgorithmId:     req.DeviceProfile.AdrAlgorithmId,
+			SupportsClassB:            req.DeviceProfile.SupportsClassB,
+			ClassBTimeout:             req.DeviceProfile.ClassBTimeout,
+			PingSlotPeriod:            req.DeviceProfile.PingSlotPeriod,
+			PingSlotDr:                req.DeviceProfile.PingSlotDr,
+			PingSlotFreq:              req.DeviceProfile.PingSlotFreq,
+			SupportsClassC:            req.DeviceProfile.SupportsClassC,
+			ClassCTimeout:             req.DeviceProfile.ClassCTimeout,
+			MacVersion:                req.DeviceProfile.MacVersion,
+			RegParamsRevision:         req.DeviceProfile.RegParamsRevision,
+			RxDelay_1:                 req.DeviceProfile.RxDelay_1,
+			RxDrOffset_1:              req.DeviceProfile.RxDrOffset_1,
+			RxDatarate_2:              req.DeviceProfile.RxDatarate_2,
+			RxFreq_2:                  req.DeviceProfile.RxFreq_2,
+			MaxEirp:                   req.DeviceProfile.MaxEirp,
+			MaxDutyCycle:              req.DeviceProfile.MaxDutyCycle,
+			SupportsJoin:              req.DeviceProfile.SupportsJoin,
+			RfRegion:                  req.DeviceProfile.RfRegion,
+			Supports_32BitFCnt:        req.DeviceProfile.Supports_32BitFCnt,
+			FactoryPresetFreqs:        req.DeviceProfile.FactoryPresetFreqs,
+			AdrAlgorithmId:            req.DeviceProfile.AdrAlgorithmId,
+			Save_GW_RXOnJoin:          req.DeviceProfile.Save_GW_RX_OnJoin,
+			SyncSecurityContextOnJoin: req.SyncSecurityContextOnJoin,
 		},
 	}
 
