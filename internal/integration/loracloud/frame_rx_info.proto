@@ -2,6 +2,8 @@ syntax  = "proto3";
 
 package loracloud;
 
+option go_package = "./loracloud";
+
 import "gw/gw.proto";
 
 message FrameRXInfo {

@@ -1,6 +1,7 @@
 .PHONY: build clean test ui-requirements serve statics
 VERSION := $(shell git describe --always |sed -e "s/^v//")
-API_VERSION := $(shell go list -m -f '{{ .Version }}' github.com/brocaar/chirpstack-api/go/v3 | awk '{n=split($$0, a, "-"); print a[n]}')
+#API_VERSION := $(shell go list -m -f '{{ .Version }}' github.com/wereii/chirpstack-api/go/v3 | awk '{n=split($$0, a, "-"); print a[n]}')
+API_VERSION = v3.99.0
 
 build: ui/build static/swagger/api.swagger.json
 	mkdir -p build
@@ -36,7 +37,7 @@ snapshot: statics
 
 proto:
 	@rm -rf /tmp/chirpstack-api
-	@git clone https://github.com/brocaar/chirpstack-api.git /tmp/chirpstack-api
+	@git clone https://github.com/wereii/chirpstack-api.git /tmp/chirpstack-api
 	@git --git-dir=/tmp/chirpstack-api/.git --work-tree=/tmp/chirpstack-api checkout $(API_VERSION)
 	@go generate internal/integration/loracloud/frame_rx_info.go
 
@@ -50,11 +51,11 @@ ui/build:
 static/swagger/api.swagger.json:
 	@echo "Fetching Swagger definitions and generate combined Swagger JSON"
 	@rm -rf /tmp/chirpstack-api
-	@git clone https://github.com/brocaar/chirpstack-api.git /tmp/chirpstack-api
+	@git clone https://github.com/wereii/chirpstack-api.git /tmp/chirpstack-api
 	@git --git-dir=/tmp/chirpstack-api/.git --work-tree=/tmp/chirpstack-api checkout $(API_VERSION)
 	@mkdir -p static/swagger
-	@cp /tmp/chirpstack-api/swagger/as/external/api/*.json static/swagger
-	@GOOS="" GOARCH="" go run internal/tools/swagger/main.go /tmp/chirpstack-api/swagger/as/external/api > static/swagger/api.swagger.json
+	cp /tmp/chirpstack-api/swagger/as/external/api/*.json static/swagger
+	GOOS="" GOARCH="" go run internal/tools/swagger/main.go /tmp/chirpstack-api/swagger/as/external/api > static/swagger/api.swagger.json
 
 # shortcuts for development
 

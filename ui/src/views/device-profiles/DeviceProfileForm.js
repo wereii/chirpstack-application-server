@@ -189,7 +189,7 @@ class DeviceProfileForm extends FormComponent {
       mode: "javascript",
       theme: "default",
     };
-    
+
     let payloadEncoderScript = this.state.object.payloadEncoderScript;
     let payloadDecoderScript = this.state.object.payloadDecoderScript;
 
@@ -315,6 +315,32 @@ function Decode(fPort, bytes, variables) {
             value={this.state.object.uplinkInterval}
             onChange={this.onChange}
           />
+          <FormControl fullWidth margin="normal">
+            <FormControlLabel
+              label="Save RXInfo on Join Request"
+              control={
+                <Checkbox
+                  id="saveRxInfoOnJoin"
+                  checked={!!this.state.object.saveRxinfoOnJoin}
+                  onChange={this.onChange}
+                  color="primary"
+                />
+              }
+            />
+          </FormControl>
+        <FormControl fullWidth margin="normal">
+            <FormControlLabel
+              label="Sync device session on join request"
+              control={
+                <Checkbox
+                  id="syncDeviceSessionOnJoin"
+                  checked={!!this.state.object.syncDeviceSessionOnJoin}
+                  onChange={this.onChange}
+                  color="primary"
+                />
+              }
+            />
+          </FormControl>
         </div>}
 
         {this.state.tab === 1 && <div>
