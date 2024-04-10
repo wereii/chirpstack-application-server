@@ -320,7 +320,7 @@ function Decode(fPort, bytes, variables) {
               label="Save RXInfo on Join Request"
               control={
                 <Checkbox
-                  id="saveRxInfoOnJoin"
+                  id="saveRxinfoOnJoin"
                   checked={!!this.state.object.saveRxinfoOnJoin}
                   onChange={this.onChange}
                   color="primary"
@@ -328,7 +328,7 @@ function Decode(fPort, bytes, variables) {
               }
             />
           </FormControl>
-        <FormControl fullWidth margin="normal">
+          <FormControl fullWidth margin="normal">
             <FormControlLabel
               label="Sync device session on join request"
               control={
