@@ -12,7 +12,7 @@ COPY . $PROJECT_PATH
 WORKDIR $PROJECT_PATH
 
 RUN make dev-requirements ui-requirements
-RUN make
+RUN make clean && make
 
 FROM alpine:3.17.0 AS production
 

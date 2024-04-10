@@ -1,7 +1,7 @@
 .PHONY: build clean test ui-requirements serve statics
 VERSION := $(shell git describe --always |sed -e "s/^v//")
 #API_VERSION := $(shell go list -m -f '{{ .Version }}' github.com/wereii/chirpstack-api/go/v3 | awk '{n=split($$0, a, "-"); print a[n]}')
-API_VERSION = v3.99.0
+API_VERSION = v3.99.1
 
 build: ui/build static/swagger/api.swagger.json
 	mkdir -p build
@@ -45,8 +45,8 @@ statics: ui/build static/swagger/api.swagger.json
 
 ui/build:
 	@echo "Building ui"
-	@cd ui && npm run build
-	@mv ui/build/* static
+	cd ui && npm run build
+	mv ui/build/* static
 
 static/swagger/api.swagger.json:
 	@echo "Fetching Swagger definitions and generate combined Swagger JSON"
