@@ -126,9 +126,9 @@ func updateDeviceActivation(ctx *uplinkContext) error {
 	copy(devAddr[:], da.DevAddr)
 
 	// if DevAddr and AppSKey are equal, there is nothing to do
-	if ctx.device.DevAddr == devAddr && ctx.device.AppSKey == appSKey {
-		return nil
-	}
+	//if ctx.device.DevAddr == devAddr && ctx.device.AppSKey == appSKey {
+	//	return nil
+	//}
 
 	ctx.device.DevAddr = devAddr
 	ctx.device.AppSKey = appSKey
